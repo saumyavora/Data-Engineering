@@ -7,3 +7,4 @@ https://www.census.gov/programs-surveys/acs/technical-documentation/summary-file
 'Final_Presentation.pptx' is the powerpoint presentation where I have analyzed and recommended actions to be taken.
 
 2. The second project "Anonymization" is for converting any important infromation to unknown mask values, which helps to prevent the sensitive data to be exposed.
+It is very similar problem to URL Shortner, where I am generating 8 digits random value for the original value and use this masked value in pace of the original one.
