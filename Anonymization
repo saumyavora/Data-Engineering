@@ -1,0 +1,32 @@
+import pandas as pd
+import random
+# The column(field) names which we want to mask
+list_fields=['Legal_Name','Consultant','Store_Grade']
+list_dict = []
+mask_list = []
+def anonymization(list_fields,df):
+    df = pd.read_excel(df)
+    for fields in list_fields:
+        # For every field we create a new dictionary
+        dict = {}
+        # for every unique row in the field
+        for row in df[fields].unique():
+            # first we create a mask value
+            mask = ''.join(random.choice('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ') for i in range(8))
+            # Until that mask value is already present in mask_list
+            while mask in mask_list:
+                # We change the mask value and make sure that mask value is unique
+                mask = ''.join(random.choice('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ') for i in range(8))
+            # append the value to the mask_list
+            mask_list.append(mask)
+            # if the row(field_name) is already in the dictionary as a key then we skip
+            if row in dict.keys():
+                continue
+            # otherwise we create a new key value pair in the dictionary where key is "field name" and value is the mask value
+            else:
+                dict[row] = mask
+        #  at the end we apend this dictionary to a list
+        list_dict.append(dict)
+
+
+anonymization(list_fields,df='NameOfDataframe.xlsx')
