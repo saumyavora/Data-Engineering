@@ -8,3 +8,4 @@ https://www.census.gov/programs-surveys/acs/technical-documentation/summary-file
 
 2. The second project "Anonymization" is for converting any important infromation to unknown mask values, which helps to prevent the sensitive data to be exposed.
 It is very similar problem to URL Shortner, where I am generating 8 digits random value for the original value and use this masked value in pace of the original one.
+"Anonymization Testing" is to test the anonymization function whether it is working properly or not.
